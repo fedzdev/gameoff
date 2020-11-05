@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Autumn.jpg" type="Texture" id=2]
+[ext_resource path="res://Tests/testgame.gd" type="Script" id=3]
+
+[node name="Overworld" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Autumn" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="Autumn"]
+current = true
+
+[node name="Circles" type="Node2D" parent="."]
+
+[node name="place1" type="Node2D" parent="Circles"]
+position = Vector2( -280.014, 33.9411 )
+
+[node name="place2" type="Node2D" parent="Circles"]
+position = Vector2( -306.177, -186.676 )
+
+[node name="place3" type="Node2D" parent="Circles"]
+position = Vector2( 255.973, 109.602 )
+
+[node name="place4" type="Node2D" parent="Circles"]
+position = Vector2( 303.541, -112.78 )
+
+[node name="place5" type="Node2D" parent="Circles"]
+position = Vector2( 266.675, -240.025 )
+
+[node name="place6" type="Node2D" parent="Circles"]
+position = Vector2( 41.9154, -79.4824 )
+
+[node name="place7" type="Node2D" parent="Circles"]
+position = Vector2( -206.629, 154.791 )
+
+[node name="place8" type="Node2D" parent="Circles"]
+position = Vector2( -362.415, 210.684 )
+
+[node name="place9" type="Node2D" parent="Circles"]
+position = Vector2( -436.146, -137.753 )
+
+[node name="place10" type="Node2D" parent="Circles"]
+position = Vector2( -16.3557, 268.955 )
+
+[node name="place11" type="Node2D" parent="Circles"]
+position = Vector2( 196.512, 216.63 )
+
+[node name="place12" type="Node2D" parent="Circles"]
+position = Vector2( -40.1399, -220.998 )
+
+[node name="place13" type="Node2D" parent="Circles"]
+position = Vector2( -325.55, 111.98 )

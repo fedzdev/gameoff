@@ -8,14 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://Scripts/StateMachine.gd"
+} ]
 _global_script_class_icons={
-
+"StateMachine": ""
 }
 
 [application]
 
 config/name="GithubGameoff"
+run/main_scene="res://Tests/testgame.tscn"
 config/icon="res://icon.png"
 
 [rendering]
