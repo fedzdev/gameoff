@@ -16,5 +16,10 @@ func _physics_process(delta):
 
 
 func _on_Bullut_body_entered(body):
-	if not body.name == "Player":
-		queue_free()
+	if body.name == "dumpy":
+		get_node("AudioStreamPlayer2D").play()
+		self.hide()
+
+
+func _on_AudioStreamPlayer2D_finished():
+	queue_free()

@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/0x72_16x16DungeonTileset.v4.png" type="Texture" id=2]
 [ext_resource path="res://Assets/gyn.png" type="Texture" id=3]
+[ext_resource path="res://Assets/SMGShot.wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Reload3.wav" type="AudioStream" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 13.4079
@@ -35,7 +37,20 @@ shape = SubResource( 1 )
 current = true
 zoom = Vector2( 0.8, 0.8 )
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.05
+[node name="bulletspawntimer" type="Timer" parent="."]
+wait_time = 0.08
 autostart = true
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+[node name="bulletaudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+pitch_scale = 1.5
+
+[node name="reloadtimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="reloadaudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+[connection signal="timeout" from="bulletspawntimer" to="." method="_on_bulletspawntimer_timeout"]
+[connection signal="finished" from="bulletaudio" to="." method="_on_bulletaudio_finished"]
+[connection signal="timeout" from="reloadtimer" to="." method="_on_reloadtimer_timeout"]
+[connection signal="finished" from="reloadaudio" to="." method="_on_reloadaudio_finished"]
