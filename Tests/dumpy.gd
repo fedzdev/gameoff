@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 
+
 var speed : = 200
 var path : = PoolVector2Array() setget set_path
 var stop_moving = false
@@ -8,7 +9,8 @@ var stop_moving = false
 func _ready() -> void:
 	set_process(false)
 	
-
+func test():
+	pass
 
 func _process(delta: float) -> void:
 	var move_distance : = speed * delta

@@ -1,10 +1,11 @@
 extends KinematicBody2D
 
 
-onready var gunnode = get_node("bulletaudio")
+onready var CurrentGun = get_node("SMG")
 
 
 const Bullet = preload("res://Tests/Bullut.tscn")
+const Gernade = preload("res://Tests/Gernade.tscn")
 const FRICTION = 0.1
 
 var motion = Vector2()
@@ -12,8 +13,10 @@ var acceleration = 5
 var velocity_multiplier = 1
 var shooting_timer = false
 var bullets = 120
+var grenades = 3
 var follow_on = false
 var playing_reload_audio = false
+var target = get_global_mouse_position()
 
 
 
@@ -26,31 +29,30 @@ func _physics_process(delta):
 func change_look():
 	if get_local_mouse_position().x > 0:
 		get_node("Sprite").scale.x = 3
-		get_node("Sprite/gun").look_at(get_global_mouse_position())
+		CurrentGun.scale.x = 1
+		CurrentGun.flip_v = false
+		CurrentGun.look_at(get_global_mouse_position())
 
-	elif get_local_mouse_position().x < 0:
+	if get_local_mouse_position().x < 0:
 		get_node("Sprite").scale.x = -3
-		get_node("Sprite/gun").look_at(get_global_mouse_position())
+		CurrentGun.scale.x = -1
+		CurrentGun.flip_v = true
+		CurrentGun.look_at(get_global_mouse_position())
+
 
 
 
 func update_player_input(delta):
 	if Input.is_action_pressed("shoot"):
-			if shooting_timer == false:
-				if bullets > 0:
-					bullets -= 1
-					var bullut = Bullet.instance()
-					bullut.position = get_node("Sprite/gun/Position2D").global_position
-					bullut.rotation = get_angle_to(get_global_mouse_position()) -rand_range(-PI / 8, PI / 8)
-					get_parent().add_child(bullut)
-					shooting_timer = true
-					get_node("bulletspawntimer").start()
-					gunnode.play()
-				elif bullets <= 0:
-					if not playing_reload_audio:
-						print("gotta reload")
-						reload()
-	
+			target = get_global_mouse_position()
+			CurrentGun.shoot(target)
+	if Input.is_action_just_pressed("throw"):
+		if grenades > 0:
+			grenades -= 1
+			var gernade = Gernade.instance()
+			gernade.position = get_node("Sprite/gun/Position2D").global_position
+			gernade.rotation = get_angle_to(get_global_mouse_position()) 
+			get_parent().add_child(gernade)
 	
 	if Input.is_action_just_pressed("guard"):
 		get_tree().call_group("dumpy", "move_dumpy", self.global_position)
@@ -79,26 +81,4 @@ func update_player_input(delta):
 		motion.x = lerp(motion.x, 0, FRICTION)
 	
 	if Input.is_action_just_pressed("reload"):
-		reload()
-
-func _on_bulletspawntimer_timeout():
-	shooting_timer = false
-
-
-func reload():
-	bullets = 0
-	get_node("reloadtimer").start()
-	get_node("reloadaudio").play()
-	playing_reload_audio = true
-	
-
-func _on_reloadtimer_timeout():
-	bullets = 120
-
-
-func _on_AudioStreamPlayer2D_finished():
-	bullets = 120
-
-
-func _on_reloadaudio_finished():
-	playing_reload_audio = false
+		CurrentGun.reload()

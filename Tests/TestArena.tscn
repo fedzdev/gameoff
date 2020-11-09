@@ -142,9 +142,3 @@ position = Vector2( 13.773, -113.363 )
 
 [node name="dumpy2" parent="." instance=ExtResource( 9 )]
 position = Vector2( -166.497, 166.497 )
-
-[node name="dumpy3" parent="." instance=ExtResource( 9 )]
-position = Vector2( -95.8622, 120.248 )
-
-[node name="dumpy4" parent="." instance=ExtResource( 9 )]
-position = Vector2( 32.795, -45.4084 )
