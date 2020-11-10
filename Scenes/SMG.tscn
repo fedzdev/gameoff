@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Gun.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/SMG.gd" type="Script" id=2]
 [ext_resource path="res://Assets/gyn.png" type="Texture" id=3]
 [ext_resource path="res://Assets/SMGShot.wav" type="AudioStream" id=4]
 [ext_resource path="res://Assets/Reload3.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/shotmachine.png" type="Texture" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -12,21 +13,26 @@ animations = [ {
 "loop": true,
 "name": "default",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "New Anim",
+"speed": 5.0
 } ]
 
 [node name="SMG" instance=ExtResource( 1 )]
 frames = SubResource( 1 )
 flip_h = true
 script = ExtResource( 2 )
-max_bullets = 30
+max_bullets = 3000
 bullet_amount = 20
-bullet_spread = 8.0
+bullet_spread = 100.0
 bullet_speed = 1000
 reload_time = 2.0
 bullet_spawn_time = 0.08
 
 [node name="BarrelPoint" parent="." index="0"]
-position = Vector2( 8.42797, -2.24747 )
+position = Vector2( 30, -2 )
 
 [node name="ShotAudio" parent="." index="1"]
 stream = ExtResource( 4 )

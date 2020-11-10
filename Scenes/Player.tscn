@@ -25,6 +25,6 @@ shape = SubResource( 1 )
 current = true
 zoom = Vector2( 0.8, 0.8 )
 
-[node name="SMG" parent="." instance=ExtResource( 6 )]
-position = Vector2( 0, 7 )
-offset = Vector2( 13, 0 )
+[node name="hand" type="Node2D" parent="."]
+
+[node name="SMG" parent="hand" instance=ExtResource( 6 )]

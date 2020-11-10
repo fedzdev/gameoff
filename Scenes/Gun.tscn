@@ -8,6 +8,7 @@ script = ExtResource( 1 )
 [node name="BarrelPoint" type="Position2D" parent="."]
 
 [node name="ShotAudio" type="AudioStreamPlayer2D" parent="."]
+volume_db = -10.221
 
 [node name="BulletSpawnTimer" type="Timer" parent="."]
 autostart = true

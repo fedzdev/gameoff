@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 
-onready var CurrentGun = get_node("SMG")
+onready var CurrentGun = get_node("hand").get_child(0)
 
 
 const Bullet = preload("res://Tests/Bullut.tscn")
@@ -19,6 +19,9 @@ var playing_reload_audio = false
 var target = get_global_mouse_position()
 
 
+func _ready():
+	equip_gun()
+
 
 func _physics_process(delta):
 	update_player_input(delta)
@@ -26,18 +29,26 @@ func _physics_process(delta):
 
 	change_look()
 	
+
+
 func change_look():
 	if get_local_mouse_position().x > 0:
 		get_node("Sprite").scale.x = 3
 		CurrentGun.scale.x = 1
 		CurrentGun.flip_v = false
-		CurrentGun.look_at(get_global_mouse_position())
+		CurrentGun.position.x = CurrentGun.must_position
+		if CurrentGun.has_method("MustOffset"):
+			CurrentGun.BarrelPoint.position.y = -CurrentGun.must_offset
+		CurrentGun.rotation_degrees = rad2deg(get_angle_to(get_global_mouse_position()))
 
 	if get_local_mouse_position().x < 0:
 		get_node("Sprite").scale.x = -3
-		CurrentGun.scale.x = -1
+		CurrentGun.scale.x = 1
 		CurrentGun.flip_v = true
-		CurrentGun.look_at(get_global_mouse_position())
+		CurrentGun.position.x = -CurrentGun.must_position
+		if CurrentGun.has_method("MustOffset"):
+			CurrentGun.BarrelPoint.position.y = CurrentGun.must_offset
+		CurrentGun.rotation_degrees = rad2deg(get_angle_to(get_global_mouse_position()))
 
 
 
@@ -82,3 +93,24 @@ func update_player_input(delta):
 	
 	if Input.is_action_just_pressed("reload"):
 		CurrentGun.reload()
+
+
+func equip_gun():
+	if CurrentGun.name == "SMG":
+		CurrentGun.offset.x = 13
+#		CurrentGun.position.x = -2
+		CurrentGun.position.y = 7
+	if CurrentGun.name == "Pistol":
+#		CurrentGun.position.x = 5
+		CurrentGun.position.y = 13
+	
+
+
+
+
+
+
+
+
+
+

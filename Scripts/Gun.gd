@@ -11,6 +11,7 @@ onready var ReloadTimer = get_node("ReloadTimer")
 onready var BarrelPoint = get_node("BarrelPoint")
 
 
+export var damage : int
 export var bullets : int
 export var max_bullets : int
 export var bullet_amount : int
@@ -37,15 +38,14 @@ func shoot(target):
 					for amount in bullet_amount:
 						var bullet = Bullet.instance()
 						bullet.speed = bullet_speed
-						bullet.position = BarrelPoint.position
+						bullet.position = get_node("BarrelPoint").global_position
 						bullet.rotation = get_parent().get_angle_to(target) -rand_range(-PI / bullet_spread, PI / bullet_spread)
-						get_parent().add_child(bullet)
+						get_parent().get_parent().add_child(bullet)
 					shooting_timer = true
 					BulletSpawnTimer.start()
 					ShotAudio.play()
 				elif bullets <= 0:
 					if not playing_reload_audio:
-						print("gotta reload")
 						reload()
 
 
