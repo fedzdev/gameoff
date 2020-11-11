@@ -40,7 +40,7 @@ func shoot(target):
 						bullet.speed = bullet_speed
 						bullet.position = get_node("BarrelPoint").global_position
 						bullet.rotation = get_parent().get_angle_to(target) -rand_range(-PI / bullet_spread, PI / bullet_spread)
-						get_parent().get_parent().add_child(bullet)
+						get_tree().root.add_child(bullet)
 					shooting_timer = true
 					BulletSpawnTimer.start()
 					ShotAudio.play()

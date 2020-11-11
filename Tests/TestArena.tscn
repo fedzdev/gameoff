@@ -141,4 +141,10 @@ tile_data = PoolIntArray( -65540, 0, 0, -65539, 0, 0, -65538, 0, 0, -131071, 0, 
 position = Vector2( 13.773, -113.363 )
 
 [node name="dumpy2" parent="." instance=ExtResource( 9 )]
-position = Vector2( -166.497, 166.497 )
+position = Vector2( -44.3621, -65.1273 )
+
+[node name="dumpy3" parent="." instance=ExtResource( 9 )]
+position = Vector2( 50.9692, -45.306 )
+
+[node name="dumpy4" parent="." instance=ExtResource( 9 )]
+position = Vector2( 17.9336, 63.2396 )

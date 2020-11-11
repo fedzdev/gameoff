@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/0x72_16x16DungeonTileset.v4.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/SMG.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Pistol.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 13.4079
@@ -27,4 +27,4 @@ zoom = Vector2( 0.8, 0.8 )
 
 [node name="hand" type="Node2D" parent="."]
 
-[node name="SMG" parent="hand" instance=ExtResource( 6 )]
+[node name="Pistol" parent="hand" instance=ExtResource( 3 )]

@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 
-
+var test 
 var speed : = 200
 var path : = PoolVector2Array() setget set_path
 var stop_moving = false
@@ -15,6 +15,7 @@ func test():
 func _process(delta: float) -> void:
 	var move_distance : = speed * delta
 	move_along_path(move_distance)
+
 	
 func _physics_process(delta):
 	if move_out_of_way:
@@ -24,10 +25,12 @@ func move_along_path(distance : float) -> void:
 	var start_point : = position
 	for i in range(path.size()):
 		var distance_to_next : = start_point.distance_to(path[0])
+		print(distance_to_next)
 		if distance <= distance_to_next and distance >= 0.0:
 #			start_point.direction_to()
 			var dirto = start_point.direction_to(path[0])
 			if not stop_moving:
+				print("moved")
 				move_and_slide(dirto * speed)
 #			move_and_slide(start_point.direction_to(distance / distance_to_next))
 			break
@@ -39,6 +42,7 @@ func move_along_path(distance : float) -> void:
 		start_point = path[0]
 		path.remove(0)
 	
+	
 
 func set_path(value: PoolVector2Array) -> void:
 	path = value
@@ -49,7 +53,7 @@ func set_path(value: PoolVector2Array) -> void:
 
 func move_dumpy(glopos):
 	if stop_moving or not move_out_of_way:
-		var new_path = Global.navnode.get_simple_path(self.global_position, glopos)
+		var new_path = Global.navnode.get_simple_path(self.global_position, glopos, false)
 		Global.linenode.points = new_path
 		self.path = new_path
 
@@ -63,8 +67,9 @@ func move_dumpy(glopos):
 
 func _on_Area2D_body_entered(body):
 	if body.name == "Player":
-		move_dumpy(self.position)
-		stop_moving = true
+#		move_dumpy(self.position)
+#		stop_moving = true
+		pass
 
 
 
