@@ -66,7 +66,7 @@ func update_player_input(delta):
 			get_parent().add_child(gernade)
 	
 	if Input.is_action_just_pressed("guard"):
-		get_tree().call_group("dumpy", "move_dumpy", self.global_position)
+		get_tree().call_group("Companion", "move_to_pos", self.global_position)
 		follow_on = false
 	if Input.is_action_just_pressed("follow"):
 		if follow_on:
@@ -75,7 +75,7 @@ func update_player_input(delta):
 			follow_on = true
 			
 	if follow_on:
-		get_tree().call_group("dumpy", "move_dumpy", self.global_position)
+		get_tree().call_group("Companion", "move_to_pos", self.global_position)
 	
 	if Input.is_action_pressed("ui_up") and not Input.is_action_pressed("ui_down"):
 		motion.y = clamp((motion.y - acceleration), -Global.max_speed, 0)
@@ -103,6 +103,10 @@ func equip_gun():
 	if CurrentGun.name == "Pistol":
 #		CurrentGun.position.x = 5
 		CurrentGun.position.y = 13
+#	if CurrentGun.name == "Snyipert":
+##		CurrentGun.position.x = 18
+#		CurrentGun.position.y = 4
+		
 	
 
 

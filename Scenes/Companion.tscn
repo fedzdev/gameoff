@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Friend.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Companion.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/CompanionStateM.gd" type="Script" id=3]
+[ext_resource path="res://Assets/0x72_16x16DungeonTileset.v4.png" type="Texture" id=4]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 12.0179
+
+[node name="Companion" groups=[
+"Companion",
+] instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="StateM" parent="." index="0"]
+script = ExtResource( 3 )
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 177, 240, 15, 16 )
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2( -1.12247, 0.701538 )
+shape = SubResource( 1 )
+
+[node name="Label" parent="." index="3"]
+margin_left = -14.3733
+margin_top = -33.098
+margin_right = 25.6267
+margin_bottom = -19.098
+text = "test"
