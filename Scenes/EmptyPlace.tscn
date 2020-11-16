@@ -1,17 +1,31 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://celticmd.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://placetonw.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/EmptyPlace.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
 font_data = ExtResource( 1 )
 
 [node name="EmptyPlace" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 2 )
+
+[node name="Button" type="Button" parent="Sprite"]
+margin_left = -145.0
+margin_top = -113.0
+margin_right = 150.0
+margin_bottom = 115.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="."]
 margin_left = -20.0
@@ -22,3 +36,14 @@ custom_fonts/font = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="PopupMenu" type="PopupMenu" parent="."]
+margin_right = 100.0
+margin_bottom = 120.0
+items = [ "Move", null, 0, true, false, 0, 0, null, "", false, "Fortify", null, 0, false, false, 1, 0, null, "", false, "Scavenge", null, 0, false, false, 3, 0, null, "", false ]
+submenu_popup_delay = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Sprite/Button" to="." method="_on_Button_pressed"]
+[connection signal="index_pressed" from="PopupMenu" to="." method="_on_PopupMenu_index_pressed"]

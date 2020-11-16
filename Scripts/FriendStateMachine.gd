@@ -47,10 +47,7 @@ func _enter_state(new_state, old_state):
 		states.move:
 			pass
 		states.stuck:
-#			if parent.is_colliding():
-#				parent.move_back()
-#				print("moving back")
-			pass
+			parent.move_back()
 		states.seen:
 			pass
 		states.shooting:

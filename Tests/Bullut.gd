@@ -15,9 +15,10 @@ func _physics_process(delta):
 
 
 func _on_Bullut_body_entered(body):
-	if body.has_method("test"):
-		get_node("AudioStreamPlayer2D").play()
-		self.hide()
+#	if body.has_method("test"):
+	print(body)
+	get_node("AudioStreamPlayer2D").play()
+	self.hide()
 
 
 func _on_AudioStreamPlayer2D_finished():

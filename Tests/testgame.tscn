@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
+[ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Autumn.jpg" type="Texture" id=2]
 [ext_resource path="res://Tests/testgame.gd" type="Script" id=3]
 
-[node name="Overworld" type="Node2D"]
+[node name="Overworld" type="Node2D" groups=[
+"testgame",
+]]
 script = ExtResource( 3 )
 
 [node name="Autumn" type="Sprite" parent="."]
@@ -12,43 +15,37 @@ texture = ExtResource( 2 )
 [node name="Camera2D" type="Camera2D" parent="Autumn"]
 current = true
 
+[node name="Convoy" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
 [node name="Circles" type="Node2D" parent="."]
 
+[node name="place0" type="Node2D" parent="Circles"]
+position = Vector2( -382.158, 246.086 )
+
 [node name="place1" type="Node2D" parent="Circles"]
-position = Vector2( -280.014, 33.9411 )
+position = Vector2( -280.014, 137.208 )
 
 [node name="place2" type="Node2D" parent="Circles"]
-position = Vector2( -306.177, -186.676 )
+position = Vector2( -345.117, 1.38974 )
 
 [node name="place3" type="Node2D" parent="Circles"]
-position = Vector2( 255.973, 109.602 )
+position = Vector2( -203.687, 23.839 )
 
 [node name="place4" type="Node2D" parent="Circles"]
-position = Vector2( 303.541, -112.78 )
+position = Vector2( 135.297, -99.6318 )
 
 [node name="place5" type="Node2D" parent="Circles"]
-position = Vector2( 266.675, -240.025 )
+position = Vector2( 93.7659, -137.796 )
 
 [node name="place6" type="Node2D" parent="Circles"]
-position = Vector2( 41.9154, -79.4824 )
+position = Vector2( 39.8877, -171.469 )
 
 [node name="place7" type="Node2D" parent="Circles"]
-position = Vector2( -206.629, 154.791 )
+position = Vector2( -17.3578, -188.306 )
 
 [node name="place8" type="Node2D" parent="Circles"]
-position = Vector2( -362.415, 210.684 )
+position = Vector2( 125.195, -182.694 )
 
 [node name="place9" type="Node2D" parent="Circles"]
-position = Vector2( -436.146, -137.753 )
-
-[node name="place10" type="Node2D" parent="Circles"]
-position = Vector2( -16.3557, 268.955 )
-
-[node name="place11" type="Node2D" parent="Circles"]
-position = Vector2( 196.512, 216.63 )
-
-[node name="place12" type="Node2D" parent="Circles"]
-position = Vector2( -40.1399, -220.998 )
-
-[node name="place13" type="Node2D" parent="Circles"]
-position = Vector2( -325.55, 111.98 )
+position = Vector2( 198.155, -173.714 )
