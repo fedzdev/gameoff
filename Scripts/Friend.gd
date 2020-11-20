@@ -1,5 +1,11 @@
 extends KinematicBody2D
 
+
+const Pistol = preload("res://Scenes/Pistol.tscn")
+const SMG = preload("res://Scenes/SMG.tscn")
+const Snyipert = preload("res://Scenes/Snyipert.tscn")
+const Bullet = preload("res://Tests/Bullut.tscn")
+
 var moving = false
 var speed : = 200
 var path : = PoolVector2Array() setget set_path
@@ -13,13 +19,15 @@ var empty
 var stuck = false
 var has_command = false
 var stored_move_pos
-
-
+var casting = false
+var bodyy = null
+var CurrentGun
+var target
 
 func _ready() -> void:
 	set_process(false)
+	give_gun(Pistol)
 	
-
 func _physics_process(delta):
 	velocity = (position - prev_pos).round()
 	prev_pos = position
@@ -32,9 +40,36 @@ func _physics_process(delta):
 	else:
 		list.clear()
 	empty = motion
-#	print(stuck, " ", velocity)
+	if casting:
+		get_node("RayCast2D").set_cast_to((bodyy.global_position - self.global_position))
+#	if Input.is_action_pressed("shoot"):
+	if not bodyy == null:
+#		print(bodyy.name)
+		if not get_node("RayCast2D").is_colliding():
+			target = bodyy.position
+			CurrentGun.shoot(target)
+	else:
+		target = null
+	change_look()
 
-
+func change_look():
+	if not target == null: 
+		if target.x - self.position.x > 0:
+				get_node("Sprite").scale.x = 3
+				CurrentGun.scale.x = 1
+				CurrentGun.flip_v = false
+				CurrentGun.position.x = CurrentGun.must_position
+				if CurrentGun.has_method("MustOffset"):
+					CurrentGun.BarrelPoint.position.y = -CurrentGun.must_offset
+				CurrentGun.rotation_degrees = rad2deg(get_angle_to(target))
+		if target.x - self.position.x  < 0:
+				get_node("Sprite").scale.x = -3
+				CurrentGun.scale.x = 1
+				CurrentGun.flip_v = true
+				CurrentGun.position.x = -CurrentGun.must_position
+				if CurrentGun.has_method("MustOffset"):
+					CurrentGun.BarrelPoint.position.y = CurrentGun.must_offset
+				CurrentGun.rotation_degrees = rad2deg(get_angle_to(target))
 
 func _process(delta: float) -> void:
 	var move_distance : = speed * delta
@@ -85,4 +120,18 @@ func move_back():
 		move_to_pos(move_back_here)
 #	move_to_pos(stored_move_pos)
 
+func give_gun(gun):
+	var gun_instance = gun.instance()
+	add_child(gun_instance)
+	CurrentGun = gun_instance
 
+func _on_EnemyDetector_body_entered(body):
+	if body.collision_layer == 1:
+		bodyy = body
+		print("print")
+		casting = true
+
+
+func _on_EnemyDetector_body_exited(body):
+	bodyy = null
+	casting = false

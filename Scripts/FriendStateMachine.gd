@@ -24,6 +24,8 @@ func _get_transition(delta):
 				return states.move
 			if parent.velocity == Vector2(0,0) and parent.has_command:
 				return states.stuck
+			if parent.target != null:
+				return states.shooting
 		states.move:
 			if parent.velocity == Vector2(0,0) and parent.has_command:
 				return states.idle
@@ -37,7 +39,9 @@ func _get_transition(delta):
 		states.seen:
 			pass
 		states.shooting:
-			pass
+			if parent.target == null:
+				print("nulltarget")
+				return states.idle
 
 
 func _enter_state(new_state, old_state):

@@ -14,8 +14,6 @@ const FRICTION = 0.1
 var motion = Vector2()
 var acceleration = 5
 var velocity_multiplier = 1
-var shooting_timer = false
-var bullets = 120
 var grenades = 3
 var follow_on = false
 var playing_reload_audio = false
@@ -108,14 +106,15 @@ func update_player_input(delta):
 
 
 func position_gun():
-	if CurrentGun.name == "SMG":
-		CurrentGun.offset.x = 13
-		CurrentGun.position.y = 7
-	if CurrentGun.name == "Pistol":
-		CurrentGun.position.y = 13
-	if CurrentGun.name == "Snyipert":
-		CurrentGun.offset.x = 18
-		CurrentGun.position.y = 4
+	pass
+#	if CurrentGun.name == "SMG":
+#		CurrentGun.offset.x = 13
+#		CurrentGun.position.y = 7
+#	if CurrentGun.name == "Pistol":
+#		CurrentGun.position.y = 13
+#	if CurrentGun.name == "Snyipert":
+#		CurrentGun.offset.x = 18
+#		CurrentGun.position.y = 4
 		
 	
 
