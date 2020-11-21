@@ -51,7 +51,8 @@ func _enter_state(new_state, old_state):
 		states.move:
 			pass
 		states.stuck:
-			parent.move_back()
+#			parent.move_back()
+			pass
 		states.seen:
 			pass
 		states.shooting:
@@ -62,7 +63,7 @@ func _exit_state(old_state, new_state):
 		states.idle:
 			pass
 		states.move:
-			pass
+			parent.anim_node.play("collision_det_shaper")
 		states.stuck:
 			pass
 		states.seen:

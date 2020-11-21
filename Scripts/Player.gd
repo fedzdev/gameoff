@@ -70,13 +70,27 @@ func update_player_input(delta):
 			gernade.position = get_node("Sprite/gun/Position2D").global_position
 			gernade.rotation = get_angle_to(get_global_mouse_position()) 
 			get_parent().add_child(gernade)
-	
+	if Input.is_action_just_pressed("select_first"):
+		Global.selected_companion = 1
+		get_tree().call_group("Combat_GUI","selected_companion")
+	if Input.is_action_just_pressed("select_second"):
+		Global.selected_companion = 2
+		get_tree().call_group("Combat_GUI","selected_companion")
+	if Input.is_action_just_pressed("select_third"):
+		Global.selected_companion = 3
+		get_tree().call_group("Combat_GUI","selected_companion")
+	if Input.is_action_just_pressed("select_fourth"):
+		Global.selected_companion = 4
+		get_tree().call_group("Combat_GUI","selected_companion")
+	if Input.is_action_just_pressed("select_all"):
+		Global.selected_companion = 5
+		get_tree().call_group("Combat_GUI","selected_companion")
 	if Input.is_action_just_pressed("swap_left"):
 		swap_gun("left")
 	if Input.is_action_just_pressed("swap_right"):
 		swap_gun("right")
 	if Input.is_action_just_pressed("guard"):
-		get_tree().call_group("Companion", "move_to_pos", self.global_position)
+		get_tree().call_group("Companion", "move_to_pos", self.global_position, Global.selected_companion)
 		follow_on = false
 	if Input.is_action_just_pressed("follow"):
 		if follow_on:
@@ -85,7 +99,7 @@ func update_player_input(delta):
 			follow_on = true
 			
 	if follow_on:
-		get_tree().call_group("Companion", "move_to_pos", self.global_position)
+		get_tree().call_group("Companion", "move_to_pos", self.global_position, Global.selected_companion)
 	
 	if Input.is_action_pressed("ui_up") and not Input.is_action_pressed("ui_down"):
 		motion.y = clamp((motion.y - acceleration), -Global.max_speed, 0)

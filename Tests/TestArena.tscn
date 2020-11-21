@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/background.png" type="Texture" id=3]
@@ -8,7 +8,6 @@
 [ext_resource path="res://Assets/0x72_16x16DungeonTileset.v4.png" type="Texture" id=7]
 [ext_resource path="res://Tests/TestArena.gd" type="Script" id=8]
 [ext_resource path="res://Tests/dumpy.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Companion.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Mutant1.tscn" type="PackedScene" id=11]
 
 [sub_resource type="NavigationPolygon" id=1]
@@ -78,6 +77,7 @@ points = PoolVector2Array( 0, 32, 64, 32, 64, 64, 0, 64 )
 1/z_index = 0
 
 [node name="TestArena" type="Node2D" groups=[
+"Game",
 "test",
 ]]
 script = ExtResource( 8 )
@@ -124,11 +124,6 @@ tile_data = PoolIntArray( -65540, 0, 0, -65539, 0, 0, -65538, 0, 0, -131071, 0, 
 
 [node name="dumpy" parent="." instance=ExtResource( 9 )]
 position = Vector2( 13.773, -113.363 )
-
-[node name="Companion" parent="." instance=ExtResource( 10 )]
-position = Vector2( 219.648, 271.263 )
-collision_layer = 1
-collision_mask = 1
 
 [node name="Mutant1" parent="." instance=ExtResource( 11 )]
 position = Vector2( -148.492, 144.25 )

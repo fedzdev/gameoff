@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/0x72_16x16DungeonTileset.v4.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Combat_GUI.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 13.4079
@@ -26,3 +27,5 @@ current = true
 zoom = Vector2( 0.8, 0.8 )
 
 [node name="hand" type="Node2D" parent="."]
+
+[node name="Combat_GUI" parent="." instance=ExtResource( 3 )]

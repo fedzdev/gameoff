@@ -1,10 +1,26 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/FriendStateMachine.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Friend.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 259.804
+radius = 10.0071
+
+[sub_resource type="Animation" id=2]
+resource_name = "collision_det_shaper"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("EnemyDetector/CollisionShape2D:shape:radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 10.0071, 259.804 ]
+}
 
 [node name="Friend" type="KinematicBody2D"]
 collision_layer = 2
@@ -38,5 +54,16 @@ enabled = true
 cast_to = Vector2( 0, 0 )
 collision_mask = 8
 collide_with_areas = true
+
+[node name="NameLabel" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "collision_det_shaper"
+anims/collision_det_shaper = SubResource( 2 )
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]
 [connection signal="body_exited" from="EnemyDetector" to="." method="_on_EnemyDetector_body_exited"]

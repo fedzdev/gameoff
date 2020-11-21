@@ -6,6 +6,10 @@ const SMG = preload("res://Scenes/SMG.tscn")
 const Snyipert = preload("res://Scenes/Snyipert.tscn")
 const Bullet = preload("res://Tests/Bullut.tscn")
 
+onready var anim_node = get_node("AnimationPlayer")
+
+var id
+
 var moving = false
 var speed : = 200
 var path : = PoolVector2Array() setget set_path
@@ -23,10 +27,12 @@ var casting = false
 var bodyy = null
 var CurrentGun
 var target
+var gun
 
 func _ready() -> void:
 	set_process(false)
-	give_gun(Pistol)
+	if not gun == null:
+		give_gun(gun)
 	
 func _physics_process(delta):
 	velocity = (position - prev_pos).round()
@@ -105,22 +111,29 @@ func set_path(value: PoolVector2Array) -> void:
 	set_process(true)
 	
 
-func move_to_pos(move_position):
-	var new_path = Global.navnode.get_simple_path(self.global_position, move_position, false)
-	stored_move_pos = new_path
-	Global.linenode.points = new_path
-	self.path = new_path
+func move_to_pos(move_position, selected_comp):
+	if self.id == selected_comp or selected_comp == 5:
+		var new_path = Global.navnode.get_simple_path(self.global_position, move_position, false)
+		stored_move_pos = new_path
+		Global.linenode.points = new_path
+		self.path = new_path
 
-var move_back_here
-func move_back():
-	for i in range(get_slide_count() - 1):
-		var collision = get_slide_collision(i)
-		move_back_here = position - collision.collider.position
-		print(move_back_here)
-		move_to_pos(move_back_here)
+#var move_back_here
+#func move_back():
+#	for i in range(get_slide_count() - 1):
+#		var collision = get_slide_collision(i)
+#		move_back_here = position - collision.collider.position
+#		print(move_back_here)
+#		move_to_pos(move_back_here)
 #	move_to_pos(stored_move_pos)
 
 func give_gun(gun):
+	if gun == "Snyipert":
+		gun = Snyipert
+	elif gun == "Pistol":
+		gun = Pistol
+	elif gun == "SMG":
+		gun = SMG
 	var gun_instance = gun.instance()
 	add_child(gun_instance)
 	CurrentGun = gun_instance
