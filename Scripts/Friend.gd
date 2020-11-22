@@ -139,9 +139,8 @@ func give_gun(gun):
 	CurrentGun = gun_instance
 
 func _on_EnemyDetector_body_entered(body):
-	if body.collision_layer == 1:
+	if body.collision_layer == 4:
 		bodyy = body
-		print("print")
 		casting = true
 
 

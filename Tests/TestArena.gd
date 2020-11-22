@@ -7,6 +7,7 @@ onready var line_2d : Line2D = get_node("Line2D")
 onready var dumpy : KinematicBody2D = get_node("dumpy")
 
 func _ready():
+	set_process(false)
 	Global.navnode = get_node("Navigation2D")
 	Global.linenode = get_node("Line2D")
 	spawn_companions()
@@ -14,6 +15,13 @@ func _ready():
 
 func enemies_to_list(enemy_to_add):
 	Global.enemies_in_current_encounter.append(enemy_to_add)
+	print("aded emeny", enemy_to_add)
+	set_process(true)
+
+func _process(delta):
+	if Global.enemies_in_current_encounter.size() == 0:
+		print("AAAAAAAAAAAAAAA")
+		get_tree().change_scene("res://Tests/testgame.tscn")
 
 func spawn_companions():
 	var companion_name
