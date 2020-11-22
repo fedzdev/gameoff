@@ -6,3 +6,6 @@
 
 [node name="Label" parent="." index="1"]
 text = "ruins"
+
+[node name="PopupMenu" parent="." index="2"]
+items = [ "Move", null, 0, true, false, 0, 0, null, "", false, "Fortify", null, 0, false, false, 1, 0, null, "", false, "Scavenge", null, 0, false, false, 3, 0, null, "", false ]
