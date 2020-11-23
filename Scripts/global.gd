@@ -7,6 +7,7 @@ var selected_companion
 var companions = [1,2,3,4]
 
 var enemies_in_current_encounter = []
+var enemies_to_be_spawned = []
 
 var companion_1 = {"name":"Steve","gun":"SMG","spawn":Vector2(0,0),"id":1}
 var companion_2 = {"name":"apina","gun":"Pistol","spawn":Vector2(5,0),"id":2}

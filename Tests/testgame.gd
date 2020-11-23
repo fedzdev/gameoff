@@ -29,9 +29,21 @@ func _ready():
 		filler -= 1
 	random_spawner()
 
-func moveplauyer(pos):
-	convoy.position = pos
+onready var tween = get_node("Tween")
 
+func moveplauyer(pos):
+	tween.interpolate_property(get_node("Convoy"), "position", convoy.position, pos, 1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+#	convoy.position = lerp(convoy.position, pos, 2)
+	tween.start()
+	flip_day()
+#	convoy.position = pos
+
+onready var map = get_node("Autumn")
+func flip_day():
+	if map.modulate == Color(1, 1, 1):
+		tween.interpolate_property(map, "modulate", Color(1, 1, 1) , Color(0, 1, 1) , 1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	else:
+		tween.interpolate_property(map, "modulate", Color(0, 1, 1) , Color(1, 1, 1) , 1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 func random_spawner():
 	while list_of_spawns.size() != 0:
 #		spawns_amount -= 1

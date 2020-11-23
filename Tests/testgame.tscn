@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/spr_convoy.png" type="Texture" id=1]
 [ext_resource path="res://Autumn.jpg" type="Texture" id=2]
 [ext_resource path="res://Tests/testgame.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Map_GUI.tscn" type="PackedScene" id=4]
 
 [node name="Overworld" type="Node2D" groups=[
 "testgame",
@@ -50,3 +51,7 @@ position = Vector2( 198.155, -173.714 )
 [node name="Convoy" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 offset = Vector2( 30, 20 )
+
+[node name="Map_GUI" parent="." instance=ExtResource( 4 )]
+
+[node name="Tween" type="Tween" parent="."]
