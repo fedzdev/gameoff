@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/ParentScene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/arrow.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/ResearchScene.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/TemplateGunUpgrade.tscn" type="PackedScene" id=4]
 
 [node name="ResearchScene" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
@@ -57,5 +58,24 @@ mouse_filter = 1
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 2 )
 expand = true
+
+[node name="Control" type="Control" parent="Panel" index="2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -372.0
+margin_top = -70.0
+margin_right = -372.0
+margin_bottom = -70.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TemplateGunUpgrade" parent="Panel/Control" index="0" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
 [connection signal="pressed" from="Panel/CenterContainer/HBoxContainer/LeftButton" to="." method="_on_LeftButton_pressed"]
 [connection signal="pressed" from="Panel/CenterContainer/HBoxContainer/RightButton" to="." method="_on_RightButton_pressed"]

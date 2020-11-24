@@ -1,10 +1,325 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
 
-[node name="TemplateGunUpgrade" type="Control"]
+[ext_resource path="res://Scripts/TemplateGunUpgrade.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Pistol.tscn" type="PackedScene" id=2]
+
+[node name="TemplateGunUpgrade" type="Control" groups=[
+"TemplateGUI",
+]]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -324.0
+margin_right = -323.0
 margin_bottom = -300.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 30.0
+margin_bottom = -30.0
+mouse_filter = 0
+custom_constants/separation = 50
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RightSide" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 150.0
+margin_bottom = 250.0
+custom_constants/separation = 50
+
+[node name="ButtonContainer" type="Control" parent="HBoxContainer/RightSide"]
+margin_right = 150.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 150, 60 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/RightSide/ButtonContainer"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/RightSide/ButtonContainer/CenterContainer"]
+margin_right = 162.0
+margin_bottom = 40.0
+custom_constants/separation = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/RightSide/ButtonContainer/CenterContainer/HBoxContainer"]
+margin_right = 72.0
+margin_bottom = 40.0
+custom_constants/separation = 10
+
+[node name="UpgradeName" type="Label" parent="HBoxContainer/RightSide/ButtonContainer/CenterContainer/HBoxContainer/VBoxContainer"]
+margin_right = 72.0
+margin_bottom = 14.0
+text = "name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeDescription" type="Label" parent="HBoxContainer/RightSide/ButtonContainer/CenterContainer/HBoxContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 72.0
+margin_bottom = 38.0
+text = "description"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckButton1" type="CheckBox" parent="HBoxContainer/RightSide/ButtonContainer/CenterContainer/HBoxContainer"]
+margin_left = 82.0
+margin_right = 162.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 80, 40 )
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+text = "enable"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PurchaseButton1" type="Button" parent="HBoxContainer/RightSide/ButtonContainer" groups=[
+"PurchaseButtons",
+]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -10.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonContainer2" type="Control" parent="HBoxContainer/RightSide"]
+margin_top = 110.0
+margin_right = 150.0
+margin_bottom = 170.0
+rect_min_size = Vector2( 150, 60 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/RightSide/ButtonContainer2"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/RightSide/ButtonContainer2/CenterContainer"]
+margin_right = 162.0
+margin_bottom = 40.0
+custom_constants/separation = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/RightSide/ButtonContainer2/CenterContainer/HBoxContainer"]
+margin_right = 72.0
+margin_bottom = 40.0
+custom_constants/separation = 10
+
+[node name="UpgradeName" type="Label" parent="HBoxContainer/RightSide/ButtonContainer2/CenterContainer/HBoxContainer/VBoxContainer"]
+margin_right = 72.0
+margin_bottom = 14.0
+text = "name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeDescription" type="Label" parent="HBoxContainer/RightSide/ButtonContainer2/CenterContainer/HBoxContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 72.0
+margin_bottom = 38.0
+text = "description"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckButton2" type="CheckBox" parent="HBoxContainer/RightSide/ButtonContainer2/CenterContainer/HBoxContainer"]
+margin_left = 82.0
+margin_right = 162.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 80, 40 )
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+text = "enable"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PurchaseButton2" type="Button" parent="HBoxContainer/RightSide/ButtonContainer2" groups=[
+"PurchaseButtons",
+]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -10.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ViewportContainer" type="ViewportContainer" parent="HBoxContainer"]
+margin_left = 200.0
+margin_right = 550.0
+margin_bottom = 250.0
+grow_vertical = 2
+rect_min_size = Vector2( 350, 250 )
+stretch = true
+stretch_shrink = 3
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Viewport" type="Viewport" parent="HBoxContainer/ViewportContainer"]
+size = Vector2( 116, 83 )
+size_override_stretch = true
+own_world = true
+handle_input_locally = false
+msaa = 1
+usage = 0
+render_target_update_mode = 3
+
+[node name="Pistol" parent="HBoxContainer/ViewportContainer/Viewport" instance=ExtResource( 2 )]
+centered = false
+
+[node name="LeftSide" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 600.0
+margin_right = 750.0
+margin_bottom = 250.0
+custom_constants/separation = 50
+
+[node name="ButtonContainer3" type="Control" parent="HBoxContainer/LeftSide"]
+margin_right = 150.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 150, 60 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/LeftSide/ButtonContainer3"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/LeftSide/ButtonContainer3/CenterContainer"]
+margin_right = 162.0
+margin_bottom = 40.0
+custom_constants/separation = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/LeftSide/ButtonContainer3/CenterContainer/HBoxContainer"]
+margin_right = 72.0
+margin_bottom = 40.0
+custom_constants/separation = 10
+
+[node name="UpgradeName" type="Label" parent="HBoxContainer/LeftSide/ButtonContainer3/CenterContainer/HBoxContainer/VBoxContainer"]
+margin_right = 72.0
+margin_bottom = 14.0
+text = "name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeDescription" type="Label" parent="HBoxContainer/LeftSide/ButtonContainer3/CenterContainer/HBoxContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 72.0
+margin_bottom = 38.0
+text = "description"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckButton3" type="CheckBox" parent="HBoxContainer/LeftSide/ButtonContainer3/CenterContainer/HBoxContainer"]
+margin_left = 82.0
+margin_right = 162.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 80, 40 )
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+text = "enable"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PurchaseButton3" type="Button" parent="HBoxContainer/LeftSide/ButtonContainer3" groups=[
+"PurchaseButtons",
+]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -10.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonContainer4" type="Control" parent="HBoxContainer/LeftSide"]
+margin_top = 110.0
+margin_right = 150.0
+margin_bottom = 170.0
+rect_min_size = Vector2( 150, 60 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/LeftSide/ButtonContainer4"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/LeftSide/ButtonContainer4/CenterContainer"]
+margin_right = 162.0
+margin_bottom = 40.0
+custom_constants/separation = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/LeftSide/ButtonContainer4/CenterContainer/HBoxContainer"]
+margin_right = 72.0
+margin_bottom = 40.0
+custom_constants/separation = 10
+
+[node name="UpgradeName" type="Label" parent="HBoxContainer/LeftSide/ButtonContainer4/CenterContainer/HBoxContainer/VBoxContainer"]
+margin_right = 72.0
+margin_bottom = 14.0
+text = "name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeDescription" type="Label" parent="HBoxContainer/LeftSide/ButtonContainer4/CenterContainer/HBoxContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 72.0
+margin_bottom = 38.0
+text = "description"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckButton4" type="CheckBox" parent="HBoxContainer/LeftSide/ButtonContainer4/CenterContainer/HBoxContainer"]
+margin_left = 82.0
+margin_right = 162.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 80, 40 )
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+text = "enable"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PurchaseButton4" type="Button" parent="HBoxContainer/LeftSide/ButtonContainer4" groups=[
+"PurchaseButtons",
+]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -10.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
