@@ -77,5 +77,27 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 0.0
 margin_bottom = 0.0
+
+[node name="MoneyTab" type="RichTextLabel" parent="Panel" index="3"]
+margin_left = 52.0
+margin_top = 44.0
+margin_right = 163.0
+margin_bottom = 113.0
+text = "monies are dat:
+100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CostTab" type="RichTextLabel" parent="Panel" index="4"]
+margin_left = 732.0
+margin_top = 68.0
+margin_right = 843.0
+margin_bottom = 137.0
+text = "dis costed:
+100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="Panel/CenterContainer/HBoxContainer/LeftButton" to="." method="_on_LeftButton_pressed"]
 [connection signal="pressed" from="Panel/CenterContainer/HBoxContainer/RightButton" to="." method="_on_RightButton_pressed"]

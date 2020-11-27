@@ -32,7 +32,7 @@ margin_right = 150.0
 margin_bottom = 250.0
 custom_constants/separation = 50
 
-[node name="ButtonContainer" type="Control" parent="HBoxContainer/RightSide"]
+[node name="FirstGrade" type="Control" parent="HBoxContainer/RightSide"]
 margin_right = 150.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 150, 60 )
@@ -40,42 +40,47 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/RightSide/ButtonContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/RightSide/FirstGrade"]
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/RightSide/ButtonContainer/CenterContainer"]
-margin_right = 162.0
-margin_bottom = 40.0
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/RightSide/FirstGrade/CenterContainer"]
+margin_right = 190.0
+margin_bottom = 124.0
 custom_constants/separation = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/RightSide/ButtonContainer/CenterContainer/HBoxContainer"]
-margin_right = 72.0
-margin_bottom = 40.0
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/RightSide/FirstGrade/CenterContainer/HBoxContainer"]
+margin_right = 100.0
+margin_bottom = 124.0
 custom_constants/separation = 10
 
-[node name="UpgradeName" type="Label" parent="HBoxContainer/RightSide/ButtonContainer/CenterContainer/HBoxContainer/VBoxContainer"]
-margin_right = 72.0
+[node name="UpgradeName" type="Label" parent="HBoxContainer/RightSide/FirstGrade/CenterContainer/HBoxContainer/VBoxContainer"]
+margin_right = 100.0
 margin_bottom = 14.0
+rect_min_size = Vector2( 100, 10 )
 text = "name"
+clip_text = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="UpgradeDescription" type="Label" parent="HBoxContainer/RightSide/ButtonContainer/CenterContainer/HBoxContainer/VBoxContainer"]
-margin_top = 24.0
-margin_right = 72.0
-margin_bottom = 38.0
+[node name="UpgradeDescription" type="Label" parent="HBoxContainer/RightSide/FirstGrade/CenterContainer/HBoxContainer/VBoxContainer"]
+margin_top = 23.0
+margin_right = 100.0
+margin_bottom = 123.0
+rect_min_size = Vector2( 100, 100 )
 text = "description"
+autowrap = true
+clip_text = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CheckButton1" type="CheckBox" parent="HBoxContainer/RightSide/ButtonContainer/CenterContainer/HBoxContainer"]
-margin_left = 82.0
-margin_right = 162.0
-margin_bottom = 40.0
+[node name="CheckButton1" type="CheckBox" parent="HBoxContainer/RightSide/FirstGrade/CenterContainer/HBoxContainer"]
+margin_left = 110.0
+margin_right = 190.0
+margin_bottom = 124.0
 rect_min_size = Vector2( 80, 40 )
 mouse_filter = 1
 mouse_default_cursor_shape = 2
@@ -84,7 +89,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PurchaseButton1" type="Button" parent="HBoxContainer/RightSide/ButtonContainer" groups=[
+[node name="PurchaseButton1" type="Button" parent="HBoxContainer/RightSide/FirstGrade" groups=[
 "PurchaseButtons",
 ]]
 anchor_right = 1.0
@@ -97,7 +102,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ButtonContainer2" type="Control" parent="HBoxContainer/RightSide"]
+[node name="SecondGrade" type="Control" parent="HBoxContainer/RightSide"]
 margin_top = 110.0
 margin_right = 150.0
 margin_bottom = 170.0
@@ -106,42 +111,48 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/RightSide/ButtonContainer2"]
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/RightSide/SecondGrade"]
+margin_top = 20.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/RightSide/ButtonContainer2/CenterContainer"]
-margin_right = 162.0
-margin_bottom = 40.0
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/RightSide/SecondGrade/CenterContainer"]
+margin_right = 190.0
+margin_bottom = 124.0
 custom_constants/separation = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/RightSide/ButtonContainer2/CenterContainer/HBoxContainer"]
-margin_right = 72.0
-margin_bottom = 40.0
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/RightSide/SecondGrade/CenterContainer/HBoxContainer"]
+margin_right = 100.0
+margin_bottom = 124.0
 custom_constants/separation = 10
 
-[node name="UpgradeName" type="Label" parent="HBoxContainer/RightSide/ButtonContainer2/CenterContainer/HBoxContainer/VBoxContainer"]
-margin_right = 72.0
+[node name="UpgradeName" type="Label" parent="HBoxContainer/RightSide/SecondGrade/CenterContainer/HBoxContainer/VBoxContainer"]
+margin_right = 100.0
 margin_bottom = 14.0
+rect_min_size = Vector2( 100, 10 )
 text = "name"
+clip_text = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="UpgradeDescription" type="Label" parent="HBoxContainer/RightSide/ButtonContainer2/CenterContainer/HBoxContainer/VBoxContainer"]
-margin_top = 24.0
-margin_right = 72.0
-margin_bottom = 38.0
+[node name="UpgradeDescription" type="Label" parent="HBoxContainer/RightSide/SecondGrade/CenterContainer/HBoxContainer/VBoxContainer"]
+margin_top = 23.0
+margin_right = 100.0
+margin_bottom = 123.0
+rect_min_size = Vector2( 100, 100 )
 text = "description"
+autowrap = true
+clip_text = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CheckButton2" type="CheckBox" parent="HBoxContainer/RightSide/ButtonContainer2/CenterContainer/HBoxContainer"]
-margin_left = 82.0
-margin_right = 162.0
-margin_bottom = 40.0
+[node name="CheckButton2" type="CheckBox" parent="HBoxContainer/RightSide/SecondGrade/CenterContainer/HBoxContainer"]
+margin_left = 110.0
+margin_right = 190.0
+margin_bottom = 124.0
 rect_min_size = Vector2( 80, 40 )
 mouse_filter = 1
 mouse_default_cursor_shape = 2
@@ -150,7 +161,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PurchaseButton2" type="Button" parent="HBoxContainer/RightSide/ButtonContainer2" groups=[
+[node name="PurchaseButton2" type="Button" parent="HBoxContainer/RightSide/SecondGrade" groups=[
 "PurchaseButtons",
 ]]
 anchor_right = 1.0
@@ -193,7 +204,7 @@ margin_right = 750.0
 margin_bottom = 250.0
 custom_constants/separation = 50
 
-[node name="ButtonContainer3" type="Control" parent="HBoxContainer/LeftSide"]
+[node name="ThirdGrade" type="Control" parent="HBoxContainer/LeftSide"]
 margin_right = 150.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 150, 60 )
@@ -201,42 +212,47 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/LeftSide/ButtonContainer3"]
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/LeftSide/ThirdGrade"]
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/LeftSide/ButtonContainer3/CenterContainer"]
-margin_right = 162.0
-margin_bottom = 40.0
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/LeftSide/ThirdGrade/CenterContainer"]
+margin_right = 190.0
+margin_bottom = 124.0
 custom_constants/separation = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/LeftSide/ButtonContainer3/CenterContainer/HBoxContainer"]
-margin_right = 72.0
-margin_bottom = 40.0
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/LeftSide/ThirdGrade/CenterContainer/HBoxContainer"]
+margin_right = 100.0
+margin_bottom = 124.0
 custom_constants/separation = 10
 
-[node name="UpgradeName" type="Label" parent="HBoxContainer/LeftSide/ButtonContainer3/CenterContainer/HBoxContainer/VBoxContainer"]
-margin_right = 72.0
+[node name="UpgradeName" type="Label" parent="HBoxContainer/LeftSide/ThirdGrade/CenterContainer/HBoxContainer/VBoxContainer"]
+margin_right = 100.0
 margin_bottom = 14.0
+rect_min_size = Vector2( 100, 10 )
 text = "name"
+clip_text = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="UpgradeDescription" type="Label" parent="HBoxContainer/LeftSide/ButtonContainer3/CenterContainer/HBoxContainer/VBoxContainer"]
-margin_top = 24.0
-margin_right = 72.0
-margin_bottom = 38.0
+[node name="UpgradeDescription" type="Label" parent="HBoxContainer/LeftSide/ThirdGrade/CenterContainer/HBoxContainer/VBoxContainer"]
+margin_top = 23.0
+margin_right = 100.0
+margin_bottom = 123.0
+rect_min_size = Vector2( 100, 100 )
 text = "description"
+autowrap = true
+clip_text = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CheckButton3" type="CheckBox" parent="HBoxContainer/LeftSide/ButtonContainer3/CenterContainer/HBoxContainer"]
-margin_left = 82.0
-margin_right = 162.0
-margin_bottom = 40.0
+[node name="CheckButton3" type="CheckBox" parent="HBoxContainer/LeftSide/ThirdGrade/CenterContainer/HBoxContainer"]
+margin_left = 110.0
+margin_right = 190.0
+margin_bottom = 124.0
 rect_min_size = Vector2( 80, 40 )
 mouse_filter = 1
 mouse_default_cursor_shape = 2
@@ -245,7 +261,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PurchaseButton3" type="Button" parent="HBoxContainer/LeftSide/ButtonContainer3" groups=[
+[node name="PurchaseButton3" type="Button" parent="HBoxContainer/LeftSide/ThirdGrade" groups=[
 "PurchaseButtons",
 ]]
 anchor_right = 1.0
@@ -258,7 +274,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ButtonContainer4" type="Control" parent="HBoxContainer/LeftSide"]
+[node name="FourthGrade" type="Control" parent="HBoxContainer/LeftSide"]
 margin_top = 110.0
 margin_right = 150.0
 margin_bottom = 170.0
@@ -267,42 +283,48 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/LeftSide/ButtonContainer4"]
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/LeftSide/FourthGrade"]
+margin_top = 20.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/LeftSide/ButtonContainer4/CenterContainer"]
-margin_right = 162.0
-margin_bottom = 40.0
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/LeftSide/FourthGrade/CenterContainer"]
+margin_right = 190.0
+margin_bottom = 124.0
 custom_constants/separation = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/LeftSide/ButtonContainer4/CenterContainer/HBoxContainer"]
-margin_right = 72.0
-margin_bottom = 40.0
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/LeftSide/FourthGrade/CenterContainer/HBoxContainer"]
+margin_right = 100.0
+margin_bottom = 124.0
 custom_constants/separation = 10
 
-[node name="UpgradeName" type="Label" parent="HBoxContainer/LeftSide/ButtonContainer4/CenterContainer/HBoxContainer/VBoxContainer"]
-margin_right = 72.0
+[node name="UpgradeName" type="Label" parent="HBoxContainer/LeftSide/FourthGrade/CenterContainer/HBoxContainer/VBoxContainer"]
+margin_right = 100.0
 margin_bottom = 14.0
+rect_min_size = Vector2( 100, 10 )
 text = "name"
+clip_text = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="UpgradeDescription" type="Label" parent="HBoxContainer/LeftSide/ButtonContainer4/CenterContainer/HBoxContainer/VBoxContainer"]
-margin_top = 24.0
-margin_right = 72.0
-margin_bottom = 38.0
+[node name="UpgradeDescription" type="Label" parent="HBoxContainer/LeftSide/FourthGrade/CenterContainer/HBoxContainer/VBoxContainer"]
+margin_top = 23.0
+margin_right = 100.0
+margin_bottom = 123.0
+rect_min_size = Vector2( 100, 100 )
 text = "description"
+autowrap = true
+clip_text = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CheckButton4" type="CheckBox" parent="HBoxContainer/LeftSide/ButtonContainer4/CenterContainer/HBoxContainer"]
-margin_left = 82.0
-margin_right = 162.0
-margin_bottom = 40.0
+[node name="CheckButton4" type="CheckBox" parent="HBoxContainer/LeftSide/FourthGrade/CenterContainer/HBoxContainer"]
+margin_left = 110.0
+margin_right = 190.0
+margin_bottom = 124.0
 rect_min_size = Vector2( 80, 40 )
 mouse_filter = 1
 mouse_default_cursor_shape = 2
@@ -311,7 +333,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PurchaseButton4" type="Button" parent="HBoxContainer/LeftSide/ButtonContainer4" groups=[
+[node name="PurchaseButton4" type="Button" parent="HBoxContainer/LeftSide/FourthGrade" groups=[
 "PurchaseButtons",
 ]]
 anchor_right = 1.0

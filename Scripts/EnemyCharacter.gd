@@ -9,15 +9,18 @@ var stop_moving = false
 var stored_path
 var motion = Vector2()
 
+var target
+
 
 func _ready():
 	get_tree().call_group("Game", "enemies_to_list", self)
-	set_process(false)
+#	set_process(false)
 
 
 func _process(delta: float) -> void:
 	var move_distance : = speed * delta
 	move_along_path(move_distance)
+	raycast()
 
 
 func move_along_path(distance : float) -> void:
@@ -50,3 +53,13 @@ func move_to_pos(glopos):
 	var new_path = Global.navnode.get_simple_path(self.global_position, glopos, false)
 	Global.linenode.points = new_path
 	self.path = new_path
+
+func raycast():
+	if target != null:
+		get_node("RayCast2D").set_cast_to((target.global_position - self.global_position))
+		if get_node("RayCast2D").is_colliding():
+			print("colli")
+
+func _on_Area2D_body_entered(body):
+	if body.collision_layer == 1 or body.collision_layer == 2:
+		target = body
