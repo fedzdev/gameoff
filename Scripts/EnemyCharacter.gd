@@ -58,7 +58,7 @@ func raycast():
 	if target != null:
 		get_node("RayCast2D").set_cast_to((target.global_position - self.global_position))
 		if get_node("RayCast2D").is_colliding():
-			print("colli")
+			var kolli = get_node("RayCast2D").get_collider() 
 
 func _on_Area2D_body_entered(body):
 	if body.collision_layer == 1 or body.collision_layer == 2:
